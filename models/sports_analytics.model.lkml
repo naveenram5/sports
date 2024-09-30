@@ -28,3 +28,6 @@ explore: fantasy_stats_te {}
 
 explore: fantasy_stats_wr {}
 
+explore: fantasy_roster_stats {}
+
+explore: weekly_box_scores {}
