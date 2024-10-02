@@ -52,12 +52,43 @@ view: weekly_box_scores {
     value_format_name: decimal_2
     sql: abs(${home_score} - ${away_score}) ;;
   }
-  measure: average_projected_points {
+  measure: total_home_projected_points {
+    type:sum
+    sql:${home_projected}  ;;
+  }
+  measure: total_home_points {
+    type:sum
+    sql:${home_score}  ;;
+  }
+  measure: total_away_projected_points {
+    type:sum
+    sql:${away_projected}  ;;
+  }
+  measure: total_away_points {
+    type:sum
+    sql:${away_score}  ;;
+  }
+  measure: total_points {
     type: number
-    sql:( ${away_projected} + ${home_projected})/15  ;;
+    sql: ${total_home_points} + ${total_away_points} ;;
   }
   measure: average_total_points {
     type: number
-    sql: (${away_score} + ${home_score})/15 ;;
+    value_format_name: decimal_2
+    sql: ${total_points}/15 ;;
+  }
+  measure: total_projected_points {
+    type: number
+    sql: ${total_home_projected_points} + ${total_away_projected_points} ;;
+  }
+  measure: average_projected_points {
+    type: number
+    value_format_name: decimal_2
+    sql:${total_projected_points}/15 ;;
+  }
+  measure: weekly_pct_difference {
+    type: number
+    value_format_name: percent_2
+    sql: (${average_total_points}/${average_projected_points})-1 ;;
   }
 }
