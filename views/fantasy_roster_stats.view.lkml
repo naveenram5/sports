@@ -23,14 +23,17 @@ view: fantasy_roster_stats {
   }
   dimension: playoff_pct {
     type: number
+    value_format_name: decimal_2
     sql: ${TABLE}.playoff_pct ;;
   }
   dimension: points_against {
     type: number
+    value_format_name: decimal_2
     sql: ${TABLE}.points_against ;;
   }
   dimension: points_for {
     type: number
+    value_format_name: decimal_2
     sql: ${TABLE}.points_for ;;
   }
   dimension: standing {
@@ -72,5 +75,13 @@ view: fantasy_roster_stats {
   measure: count {
     type: count
     drill_fields: [team_name]
+  }
+  measure: average_points_for {
+    type: average
+    sql: ${points_for} ;;
+  }
+  measure: average_points_against {
+    type: average
+    sql: ${points_against} ;;
   }
 }
