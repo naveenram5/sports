@@ -1,3 +1,4 @@
+explore: fantasy_roster_stats {}
 view: fantasy_roster_stats {
   sql_table_name: `sport-analytics-project.weekly_fantasy_football_projections.fantasy_roster_stats` ;;
 
