@@ -21,8 +21,8 @@ view: fantasy_roster_stats {
     type: number
     sql: ${TABLE}.losses ;;
   }
-  dimension: playoff_pct {
-    type: number
+  measure: playoff_pct {
+    type: average
     value_format_name: decimal_2
     sql: ${TABLE}.playoff_pct ;;
   }
