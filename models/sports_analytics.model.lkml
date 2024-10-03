@@ -4,7 +4,7 @@ connection: "sports_analytics"
 include: "/views/**/*.view.lkml"
 
 datagroup: sports_analytics_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(week) FROM weekly_box_scores;;
   max_cache_age: "1 hour"
 }
 
