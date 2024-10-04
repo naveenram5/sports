@@ -2,6 +2,7 @@ connection: "sports_analytics"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/views/derived_tables/sdt_single_column_box_score.view.lkml"
 
 datagroup: sports_analytics_default_datagroup {
   sql_trigger: SELECT MAX(week) FROM weekly_box_scores;;
@@ -35,3 +36,5 @@ explore: fantasy_roster_stats {}
 explore: weekly_box_scores {}
 
 explore: weekly_projections {}
+
+explore: sdt_single_column_box_score {}
