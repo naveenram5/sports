@@ -33,6 +33,10 @@ view: sdt_single_column_box_score {
       type: number
       sql: ${TABLE}.points_for ;;
     }
+    measure: highest_points_scored {
+      type: max
+      sql: ${points_for} ;;
+    }
 
     set: detail {
       fields: [
