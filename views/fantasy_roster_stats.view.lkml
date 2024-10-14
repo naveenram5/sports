@@ -53,6 +53,7 @@ view: fantasy_roster_stats {
     sql: ${TABLE}.team_abbrev ;;
   }
   dimension: team_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.team_id ;;
   }
@@ -76,12 +77,22 @@ view: fantasy_roster_stats {
     type: count
     drill_fields: [team_name]
   }
+  measure: total_points_for {
+    type: sum_distinct
+    sql: ${points_for} ;;
+  }
   measure: average_points_for {
     type: average
+    value_format_name: decimal_2
     sql: ${points_for} ;;
   }
   measure: average_points_against {
     type: average
     sql: ${points_against} ;;
+  }
+  measure: point_differential {
+    type: number
+    value_format_name: decimal_2
+    sql: ${points_for} - ${points_against} ;;
   }
 }
