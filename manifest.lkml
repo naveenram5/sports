@@ -1,7 +1,7 @@
 project_name: "sports_analytics"
 
 application: tabbed_dashboards_with_filters_sports {
-  label: "Tabbed Dashboards with Filters Sports"
+  label: "Sports"
   file: "sportsbundle.js"
   entitlements: {
     local_storage: yes
