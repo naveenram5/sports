@@ -18,11 +18,15 @@ view: weekly_projections {
     sql: ${TABLE}.Team ;;
   }
   dimension: week {
-    type: string
+    type: number
     sql: ${TABLE}.Week ;;
   }
   measure: count {
     type: count
     drill_fields: [name]
+  }
+  measure: total_projected_points {
+    type: sum
+    sql: ${projected_points} ;;
   }
 }
