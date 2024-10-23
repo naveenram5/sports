@@ -91,4 +91,13 @@ view: weekly_box_scores {
     value_format_name: percent_2
     sql: (${average_total_points}/${average_projected_points})-1 ;;
   }
+  measure: week_measure {
+    type: number
+    sql: ${week} ;;
+  }
+  measure: current_week {
+    type: number
+    sql: max(${week_measure}) ;;
+  }
+
 }

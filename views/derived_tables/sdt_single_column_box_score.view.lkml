@@ -37,6 +37,15 @@ view: sdt_single_column_box_score {
       type: max
       sql: ${points_for} ;;
     }
+    measure: week_measure {
+      type: number
+      sql: ${week} ;;
+    }
+    measure: current_week {
+      type: number
+      sql: max(${week_measure}) ;;
+    }
+
 
     set: detail {
       fields: [
