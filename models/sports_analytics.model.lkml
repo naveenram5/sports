@@ -22,13 +22,12 @@ explore: fantasy_stats_dst {}
 
 explore: fantasy_stats {
   label: "fantasy_stats_qb"
+  description: "Weekly Stats for NFL Quarterbacks"
 }
 
-# explore: fantasy_stats_db {}
-
-# explore: fantasy_stats_lb {}
-
-explore: fantasy_stats_te {}
+explore: fantasy_stats_te {
+  description: "Weekly Stats for NFL Tight-Ends"
+}
 
 explore: fantasy_stats_wr {}
 
