@@ -31,13 +31,20 @@ explore: fantasy_stats_te {
 
 explore: fantasy_stats_wr {}
 
-explore: fantasy_roster_stats {}
+explore: fantasy_roster_stats {
+  label: "running_season_fantasy_stats"
+  description: "Cumulative Fantasy Football season stats "
+}
 
-explore: weekly_box_scores {}
+explore: weekly_box_scores {
+  description: "Individual team and matchup stats by week"
+}
 
 explore: weekly_projections {}
 
-explore: sdt_single_column_box_score {}
+explore: sdt_single_column_box_score {
+  description: "Single list of all teams in league with stats"
+}
 
 explore: consolidated_player_stats {
   join: weekly_projections {
