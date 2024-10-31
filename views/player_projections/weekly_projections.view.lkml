@@ -27,6 +27,7 @@ view: weekly_projections {
   }
   measure: total_projected_points {
     type: sum
+    value_format_name: decimal_0
     sql: ${projected_points} ;;
   }
 }

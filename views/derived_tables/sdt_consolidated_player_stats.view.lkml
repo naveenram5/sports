@@ -68,6 +68,8 @@ view: consolidated_player_stats {
   }
 
   dimension: is_most_recent_week {
+    label: "Most Recent Week Flag"
+    description: "Indicates the Most Recently Completed Week"
     type: yesno
     sql: ${date_of_week_date} = DATE(DATE_ADD(CURRENT_DATE, INTERVAL -7 DAY) - INTERVAL (EXTRACT(DAYOFWEEK FROM CURRENT_DATE) - 3) DAY) ;;
   }
@@ -90,7 +92,8 @@ view: consolidated_player_stats {
     label: "Total Fantasy Points Scored"
     description: "Total Fantasy Points Scored"
     type: sum
-    sql: ${TABLE}.fpts ;;
+    value_format_name: decimal_0
+    sql: ${fantasy_points} ;;
   }
 
   measure: total_pct_diff {

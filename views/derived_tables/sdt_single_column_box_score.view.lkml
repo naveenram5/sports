@@ -9,19 +9,9 @@ view: sdt_single_column_box_score {
               ORDER BY week,team ;;
     }
 
-    measure: count {
-      type: count
-      drill_fields: [detail*]
-    }
-
-    dimension: week {
+    dimension: points_for {
       type: number
-      sql: ${TABLE}.week ;;
-    }
-
-    dimension: team {
-      type: string
-      sql: ${TABLE}.team ;;
+      sql: ${TABLE}.points_for ;;
     }
 
     dimension: projected_points {
@@ -29,23 +19,35 @@ view: sdt_single_column_box_score {
       sql: ${TABLE}.projected_points ;;
     }
 
-    dimension: points_for {
+    dimension: team {
+      type: string
+      sql: ${TABLE}.team ;;
+    }
+
+    dimension: week {
       type: number
-      sql: ${TABLE}.points_for ;;
+      sql: ${TABLE}.week ;;
     }
-    measure: highest_points_scored {
-      type: max
-      sql: ${points_for} ;;
-    }
-    measure: week_measure {
-      type: number
-      sql: ${week} ;;
-    }
+
     measure: current_week {
       type: number
       sql: max(${week_measure}) ;;
     }
 
+   measure: highest_points_scored {
+      type: max
+      sql: ${points_for} ;;
+    }
+
+    measure: week_measure {
+      type: number
+      sql: ${week} ;;
+    }
+
+    measure: count {
+      type: count
+      drill_fields: [detail*]
+    }
 
     set: detail {
       fields: [
