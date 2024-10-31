@@ -32,11 +32,12 @@ explore: fantasy_stats_te {
 explore: fantasy_stats_wr {}
 
 explore: fantasy_roster_stats {
-  label: "running_season_fantasy_stats"
+  label: "Season Total Statistics"
   description: "Cumulative Fantasy Football season stats "
 }
 
 explore: weekly_box_scores {
+  label: "Weekly Matchup Statistics"
   description: "Individual team and matchup stats by week"
 }
 
