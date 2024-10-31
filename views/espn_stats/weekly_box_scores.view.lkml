@@ -3,11 +3,13 @@ view: weekly_box_scores {
 
   dimension: away_projected {
     type: number
+    description: "Weekly projected points for away team"
     value_format_name: decimal_2
     sql: ${TABLE}.away_projected ;;
   }
   dimension: away_score {
     type: number
+    description: "Weekly final score for away team"
     value_format_name: decimal_2
     sql: ${TABLE}.away_score ;;
   }
@@ -17,11 +19,13 @@ view: weekly_box_scores {
   }
   dimension: home_projected {
     type: number
+    description: "Weekly projected points for home team"
     value_format_name: decimal_2
     sql: ${TABLE}.home_projected ;;
   }
   dimension: home_score {
     type: number
+    description: "Weekly final score for home team"
     value_format_name: decimal_2
     sql: ${TABLE}.home_score ;;
   }
@@ -31,6 +35,7 @@ view: weekly_box_scores {
   }
   dimension: week {
     type: number
+    description: "Fantasy Football week number"
     sql: ${TABLE}.week ;;
   }
   measure: count {
@@ -38,11 +43,13 @@ view: weekly_box_scores {
   }
   measure: away_points_from_projection{
     type: number
+    description: "Point difference between final score and projected for away team"
     value_format_name: decimal_2
     sql: ${away_score} - ${away_projected} ;;
   }
   measure: home_points_from_projection {
     type: number
+    description: "Point difference between final score and projected for home team"
     value_format_name: decimal_2
     sql: ${home_score} - ${home_projected} ;;
   }
@@ -54,40 +61,49 @@ view: weekly_box_scores {
   }
   measure: total_home_projected_points {
     type:sum
+    description: "Total of all home teams projected points"
     sql:${home_projected}  ;;
   }
   measure: total_home_points {
     type:sum
+    description: "Total of all home teams final scores"
     sql:${home_score}  ;;
   }
   measure: total_away_projected_points {
     type:sum
+    description: "Total of all away teams projected points"
     sql:${away_projected}  ;;
   }
   measure: total_away_points {
     type:sum
+    description: "Total of all away teams final scores"
     sql:${away_score}  ;;
   }
   measure: total_points {
     type: number
+    description: "Total of all actual points scored"
     sql: ${total_home_points} + ${total_away_points} ;;
   }
   measure: average_total_points {
     type: number
+    description: "Average amount of points scored"
     value_format_name: decimal_2
     sql: ${total_points}/15 ;;
   }
   measure: total_projected_points {
     type: number
+    description: "Total of all projected points"
     sql: ${total_home_projected_points} + ${total_away_projected_points} ;;
   }
   measure: average_projected_points {
     type: number
+    description: "Average of all projected points"
     value_format_name: decimal_2
     sql:${total_projected_points}/15 ;;
   }
   measure: weekly_pct_difference {
     type: number
+    description: "Difference in the average points scored versus average of projected points "
     value_format_name: percent_2
     sql: (${average_total_points}/${average_projected_points})-1 ;;
   }
@@ -97,6 +113,7 @@ view: weekly_box_scores {
   }
   measure: current_week {
     type: number
+    description: "Most recent recorded fantasy football week"
     sql: max(${week_measure}) ;;
   }
 
